@@ -1,0 +1,46 @@
+<root>
+	<params>
+		<levelUp first="10" eachMorePercent="5" />
+		<skillsParam minT1="0.05" minT3="0.05" />
+	</params>
+
+	<skills>
+		<skill id="swordAttack" type="swordAttack" t1="0.5" t2="0.6" t3="0.1" t4="0.1" power="20" upgradeWith="0.1" imagePath="images/skills/swordAttack" />
+		<skill id="swordAttackEnemy" type="swordAttack" t1="1" t2="0.1" t3="1.5" t4="0.1" power="15" upgradeWith="1" imagePath="images/skills/swordAttack" />
+		<skill id="shieldBlock" type="shieldBlock" t1="0.3" t2="1.0" t3="0.1" t4="0.1" power="0.70" upgradeWith="0.005" imagePath="images/skills/shieldBlock" />
+		<skill id="heal" type="heal" t1="1" t2="0.1" t3="0.1" t4="0.1" power="20" upgradeWith="0.5" imagePath="images/skills/heal" />
+	</skills>
+
+	<items>
+		<item id="sword" instant="swordAttack" skill=""/>
+		<item id="sword2" instant="swordAttack" skill="heal" />
+		<item id="shield" instant="shieldBlock" skill="heal"/>
+		<item id="swordEnemy" instant="swordAttackEnemy" skill=""/>
+	</items>
+	
+	<drops>
+		<drop id="dropEnemy">
+			<dropItem id="exp" value="100" />
+			<dropItem id="item" value="sword2" />
+		</drop>
+		<drop id="dropBoss">
+			<dropItem id="exp" value="200" />
+			<dropItem id="item" value="sword2" />
+		</drop>
+	</drops>
+	
+	<characters>
+		<character id="player" rightHand="sword" leftHand="shield" life="10" agility="10" strength="10" dropId=""/>
+		<character id="enemy" rightHand="swordEnemy" leftHand="" life="5" agility="10" strength="10" dropId="dropEnemy" />
+		<character id="boss" rightHand="swordEnemy" leftHand="" life="50" agility="20" strength="20" dropId="dropBoss" />
+	</characters>
+	<levels>
+		<level>
+			<enemy id="enemy" waitForSeconds="1"/>
+		</level>
+		<level>
+			<enemy id="enemy" waitForSeconds="4"/>
+			<enemy id="enemy" waitForSeconds="2"/>
+		</level>
+	</levels>
+</root>
